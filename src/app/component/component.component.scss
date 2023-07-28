@@ -1,0 +1,77 @@
+// .head{
+//     background-color: blue;
+//     color: #fff;
+
+//     height: 50px;
+//     font-weight: 800;
+//     font-size: 30px;
+//    display: flex;
+//     top:0;
+
+// .btn-primary{
+//     border: none;
+//     background: none;
+//     color: white;
+
+// }
+
+// .header-icon{
+
+//     display: flex;
+//     width: 50%;
+//     justify-content: end;
+// }
+// .header-name{
+//     width: 50%;
+// }
+// }
+
+.container-fluid {
+  display: flex;
+
+  .nav-name {
+    display: flex;
+    width: 50%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .user {
+    display: flex;
+    width: 50%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 27px;
+
+    .user-icon {
+      margin-right: 5px;
+      margin-bottom: 5px;
+      color: white;
+    }
+  }
+}
+.badge {
+  font-size: 10px;
+
+  position: relative;
+  bottom: 28px;
+  right: 2px;
+}
+
+.logo-icon {
+  color: white !important;
+  font-size: 40px;
+}
+.appname {
+  font-size: 30px;
+  color: white;
+}
+.cart-icon {
+  position: relative;
+  color: white;
+  font-size: 36px;
+}
+@media screen and (max-width: 600px) {
+  .appname {
+    display: none !important;
+  }
+}

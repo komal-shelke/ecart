@@ -1,1 +1,17 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 /* You can add global styles to this file, and also import other style files */
+.example-spacer {
+  flex: 1 1 auto;
+}
+.body {
+  overflow-y: hidden !important;
+}
+.modal-overlay {
+  background: #00000057;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+}

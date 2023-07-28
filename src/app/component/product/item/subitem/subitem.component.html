@@ -1,0 +1,51 @@
+<div class="items">
+  <div class="product-img">
+    <img src="./../../../../../assets/{{ productItem.category }}.jpg" alt="product img" width="160" height="145" />
+  </div>
+  <div class="product-name">
+    <h4>{{ productItem.name }}</h4>
+  </div>
+  <div class="product-price">{{ productItem.price | currency : "INR" }}</div>
+  <div class="product-desc">
+    <p class="producttext" title="{{ productItem.description }}">{{ productItem.description }}</p>
+  </div>
+  <div class="star">
+    <span class="fa fa-star" [class.checked]="i <= productItem.rating" *ngFor="let i of stars"></span>
+  </div>
+
+  <!-- <div>
+    <span><button class="btn1" (click)="dec()">
+        <strong class="sign"> -</strong>
+      </button></span>
+    <span class="quantity">
+      <strong>{{ currentItem?.qty || productItem.qty }}</strong>
+    </span>
+    <span><button class="btn1" (click)="inc()">
+        <strong class="sign"> +</strong>
+      </button></span>
+  </div> -->
+
+  <div class="item-quantity">
+    <div><button class="btn1" (click)="dec()">
+        <strong class="sign"> -</strong>
+      </button></div>
+    <div class="quantity">
+      <strong>{{ currentItem?.qty || productItem.qty }}</strong>
+    </div>
+    <div><button class="btn1" (click)="inc()">
+        <strong class="sign"> +</strong>
+      </button></div>
+  </div>
+
+
+  <div class="product-btn">
+    <button type="button" class="btn btn-sm btn-primary " (click)="addtoCart(productItem)"> Add to
+      Cart</button>&nbsp;
+
+    <i (click)="onGoToCart()" *ngIf="isInCart()" class="bi bi-bag-check-fill bag-icon cartbag"></i>
+  </div>
+
+
+
+
+</div>

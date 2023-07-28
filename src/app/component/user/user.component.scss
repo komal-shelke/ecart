@@ -1,0 +1,157 @@
+.card {
+  margin: 20px 20px 0px;
+
+  .edit-btn {
+    border: none;
+    background: none;
+    color: green;
+
+    width: 50%;
+  }
+}
+
+.addproduct {
+  margin-top: 90px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 95%;
+  position: relative;
+
+  .addproduct-btn {
+    background-color: #0055ff;
+    border: none;
+    color: white;
+    height: 36px;
+    border-radius: 10px;
+  }
+}
+.addformmodal {
+  position: fixed;
+  top: 115px;
+  z-index: 1;
+  margin: auto;
+  left: 0;
+  right: 0;
+  max-width: 1000px;
+  padding: 10px;
+}
+.form-container {
+  border: 1px solid lightgrey;
+  margin: 20px;
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+
+  background-color: white;
+
+  .saveitem {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+  }
+  .save-btn {
+    background-color: #0055ff;
+    border: none;
+    color: white;
+    height: 36px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-right: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .header {
+    background-color: #0055ff;
+    height: 40px;
+    display: flex;
+    // font-weight: 700;
+
+    // font-size: large;
+    color: white;
+    padding-top: 6px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
+    .heading {
+      display: flex;
+      margin-left: 5px;
+      width: 50%;
+    }
+
+    .cancel-btn {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      border: none;
+      background: none;
+      color: white;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  }
+  .product-table {
+    margin: 10px;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+  .input-name {
+    font-weight: bold;
+    font-weight: 500;
+    padding-top: 10px;
+  }
+  .submit-btn {
+    margin: 20px;
+  }
+
+  .submit {
+    text-align: right;
+  }
+}
+
+.showAddProduct {
+  display: block !important;
+  .card {
+    background-color: aqua !important;
+  }
+}
+.hideAddProduct {
+  display: none !important;
+}
+.container1 {
+  overflow-x: auto;
+
+  .product-img {
+    width: 150px;
+    height: 135px;
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+  }
+  .delete-icon {
+    color: red;
+    font-size: 20px;
+  }
+  .edit-icon {
+    font-size: 20px;
+  }
+}
+.checked {
+  color: orange;
+}
+.fade {
+  opacity: 1;
+}
+.submit-btn {
+  text-align: right;
+}
+.close-icon {
+  font-size: 36px;
+  color: rgb(255, 255, 255);
+}

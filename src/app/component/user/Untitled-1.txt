@@ -1,0 +1,254 @@
+<section class="addproduct">
+    <!-- addproduct button -->
+    <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle" >Open first modal</button> -->
+    <button class="addproduct-btn" data-bs-toggle="modal" (click)="onClick(false)">Add product</button>
+
+    <!-- form -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <section class="addformmodal">
+                <div class="form-container" *ngIf="addProduct">
+                    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                        <div class="header">
+                            <div class="heading">
+                                <h3>Enter Products Details below</h3>
+                            </div>
+                            <div class="cancel-btn" (click)="onClose()">
+                                <i class="fa fa-close" style="font-size: 36px"></i>
+                            </div>
+                        </div>
+
+                        <section class="product-table">
+                            <div class="row">
+
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="input-name">Product name</label>
+                                        <input type="text" class="form-control" placeholder="Enter product name"
+                                            formControlName="name" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="input-name">Product price</label>
+                                        <input type="number" class="form-control" placeholder="Enter product price"
+                                            formControlName="price" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="input-name">Product category</label>
+                                        <select type="text" class="form-control" placeholder="Enter product category"
+                                            formControlName="category">
+                                            <option>lap</option>
+                                            <option>mob</option>
+                                            <option>tel</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="input-name">Enter Rating: </label>
+                                        <select class="form-control" name="rating" formControlName="rating">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="input-name">product quantity</label>
+                                        <input type="text" class="form-control" placeholder=" Enter product quantity"
+                                            name="quantity" formControlName="qty" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="input-name">Product description</label>
+                                        <input type="text" class="form-control" placeholder="Enter product Description"
+                                            formControlName="description" />
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12">
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <div style="text-align: right;">
+                            <button class="btn btn-primary" style="margin: 20px" type="submit">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</section>
+
+
+ public deleteItem2(getProductDetails) {
+    if (localStorage.getItem('products')) {
+      this.getProductDetails = JSON.parse(localStorage.getItem('products')!);
+      for (let i = 0; i < this.getProductDetails.length; i++) {
+        if (this.getProductDetails[i].id === getProductDetails) {
+          this.getProductDetails.splice(i, 1);
+          localStorage.setItem(
+            'products',
+            JSON.stringify(this.getProductDetails)
+          );
+          this.productDetails();
+        }
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    rating and filter==============================================
+    
+<section>
+  <div class="sidebar">
+    <!-- <div class="category">
+      <h5 class="Category-name">Category</h5>
+      <strong><button class="clear-btn" *ngIf="categoryType" (click)="filterItem('')">
+          >clear
+        </button></strong>
+      <div class="categories">
+        <h6 class="product-category" [class.checked]="categoryType && categoryType === 'lap'"
+          (click)="filterItem('lap')">
+          <i class="bi bi-laptop"></i>
+          Laptops
+        </h6>
+        <h6 class="product-category" [class.checked]="categoryType && categoryType === 'mob'"
+          (click)="filterItem('mob')">
+          <i class="bi bi-phone"></i>
+          Mobile
+        </h6>
+        <h6 class="product-category" [class.checked]="categoryType && categoryType === 'tel'"
+          (click)="filterItem('tel')">
+          <i class="bi bi-tv"></i>
+          Television
+        </h6>
+      </div>
+    </div> -->
+
+    <div class="category">
+      <h5 class="Category-name">Category</h5>
+      <strong><button class="clear-btn" *ngIf="categoryType" (click)="filterItem('')">
+          >clear
+        </button></strong>
+      <div class="categories">
+        <h6 *ngFor="let category of categories" class="product-category"
+          [class.checked]="categoryType && categoryType === category.type" (click)="filterItem(category.type)">
+          <i [class]="category.icon"></i>
+          {{ category.name }}
+        </h6>
+      </div>
+    </div>
+
+    <!-- <div class="review">
+      <h5>Customer Review</h5>
+      <div>
+        <strong><button class="clear-btn" *ngIf="star" (click)="filterRating(0)">
+            >clear
+          </button></strong>
+      </div>
+      <div>
+        <button class="star-button" (click)="filterRating(4)">
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="up" [class.checked]="star && star === 4">& Up</span>
+          </div>
+        </button>
+      </div>
+
+      <div>
+        <button class="star-button" (click)="filterRating(3)">
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="up" [class.checked]="star && star === 3">& Up</span>
+          </div>
+        </button>
+      </div>
+      <div>
+        <button class="star-button" (click)="filterRating(2)">
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star unchecked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="up" [class.checked]="star && star === 2">& Up</span>
+          </div>
+        </button>
+      </div>
+
+      <div>
+        <button class="star-button" (click)="filterRating(1)">
+          <div class="star">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="up" [class.checked]="star && star === 1">& Up</span>
+          </div>
+        </button>
+      </div>
+    </div> -->
+
+
+    <div class="review">
+      <h5>Customer Review</h5>
+      <div>
+        <strong><button class="clear-btn" *ngIf="star" (click)="filterRating(0)">
+            >clear
+          </button></strong>
+      </div>
+      <div *ngFor="let rating of ratings">
+        <div>
+          <button class="star-button" (click)="filterRating(rating.value)">
+            <div class="star">
+              <span *ngFor="let star of rating.stars" class="fa fa-star" [class.checked]="star"></span>
+              <span class="up" [class.checked]="star && star === rating.value">& Up</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<div class="drop container-fluid">
+
+  <div class="dropdown">
+    <!-- <marquee direction="right" scrollamount="8" behavior="alternate" width="60%">
+      <i> shop
+      </i>
+    </marquee> -->
+    <div class="sort-btn">
+      <button class="filter-btn" (click)="colSidebar()">Filters</button>
+    </div>
+
+
+    <label class="label"><strong>Sort by:</strong> </label>
+    <select class="dropdown-box" name="featured" id="featured" (change)="filterPrice($event)">
+      <option value="all"> Clear</option>
+
+      <option value="ltoh">Price: Low to high</option>
+      <option value="htol">Price: high to low</option>
+    </select>
+  </div>
+</div>

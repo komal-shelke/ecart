@@ -1,0 +1,151 @@
+<section class="addproduct">
+    <div class="header"><button class="addproduct-btn" (click)="onClick(false)">Add product</button></div>
+
+
+    <section class="modal-overlay" *ngIf="addProduct">
+        <section class="addformmodal">
+            <div class="form-container">
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                    <div class="header">
+                        <div class="heading">
+                            <h3>Enter Products Details below</h3>
+                        </div>
+                        <div class="cancel-btn" (click)="onClose()">
+                            <i class="fa fa-close close-icon"></i>
+                        </div>
+                    </div>
+
+                    <section class="product-table">
+                        <div class="row">
+
+
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="input-name">Product name</label>
+                                    <input type="text" class="form-control" placeholder="Enter product name"
+                                        formControlName="name" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="input-name">Product price</label>
+                                    <input type="number" class="form-control" placeholder="Enter product price"
+                                        formControlName="price" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="input-name">Product category</label>
+                                    <select type="text" class="form-control" placeholder="Enter product category"
+                                        formControlName="category">
+                                        <option *ngFor="let category of categories ">{{category.category}}</option>
+                                        <!-- <option>mob</option> 
+                                        <option>tel</option> -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="input-name">Enter Rating: </label>
+                                    <select class="form-control" name="rating" formControlName="rating">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="input-name">product quantity</label>
+                                    <input type="number" class="form-control" placeholder=" Enter product quantity"
+                                        formControlName="qty" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label class="input-name">Product description</label>
+                                    <input type="text" class="form-control" placeholder="Enter product Description"
+                                        formControlName="description" />
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                    <div class="submit">
+                        <button class="btn btn-primary submit-btn" [disabled]="loginForm.invalid" type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </section>
+</section>
+<div class="card">
+    <div class="container1">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Rating</th>
+                            <th>category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of getProductDetails">
+
+                            <td>{{item.name}}</td>
+
+                            <td><img src='./../../../assets/{{item.category}}.jpg' alt="" class="product-img" />
+                            </td>
+                            <td>{{item.description}}</td>
+                            <th>{{ item.price | currency : "INR" }}</th>
+                            <td>{{item.qty}}</td>
+
+                            <td class="star">
+                                <span class="fa fa-star" [class.checked]="i <= item.rating"
+                                    *ngFor="let i of stars"></span>
+                            </td>
+
+                            <td>{{item.category}} </td>
+
+                            <td>
+                                <button class="btn btn-danger delete-btn">
+                                    <span> <i class="bi bi-trash delete-icon" (click)="deleteItem2(item.id)"></i></span>
+                                </button>
+                                <button class="edit-btn">
+                                    <span>
+                                        <i class="fa fa-pencil edit-icon" (click)="onClick(item, true)"></i></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <header></header>
+    <section></section>
+</main>

@@ -1,0 +1,9 @@
+<div class="sort">
+    <app-sort (changePrice)="findPrice($event)" (hideSidebar)="colSidebar($event)"></app-sort>
+</div>
+<div class="product">
+    <div class="sidebar" [class.filter-section]="sidebarItem"><app-sidebar (changeFilter)="findfilter($event)"
+            (changeRating)="findRating($event)" [d]="sidebarItem"></app-sidebar></div>
+    <div class="item"><app-item [productCategory]="category" [productRating]="rating" [productPrice]="price"></app-item>
+    </div>
+</div>

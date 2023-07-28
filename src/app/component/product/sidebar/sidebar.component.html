@@ -1,0 +1,41 @@
+<section>
+  <div class="sidebar">
+
+
+
+
+    <div class="category">
+      <h5 class="Category-name">Category</h5>
+      <strong><button class="clear-btn" *ngIf="categoryType" (click)="filterItem('')">
+          >clear
+        </button></strong>
+      <div class="categories">
+        <h6 *ngFor="let category of categories" class="product-category"
+          [class.checked]="categoryType && categoryType === category.type" (click)="filterItem(category.type)">
+          <i [class]="category.icon"></i>
+          {{ category.name }}
+        </h6>
+      </div>
+    </div>
+
+
+
+
+    <div class="review">
+      <h5>Customer Review</h5>
+      <div>
+        <strong><button class="clear-btn" *ngIf="star" (click)="filterRating(0)">
+            >clear
+          </button></strong>
+      </div>
+      <div *ngFor="let rating of ratings">
+        <div>
+          <button class="star-button" (click)="filterRating(rating.value)">
+            <div class="star">
+              <span *ngFor="let star of rating.stars" class="fa fa-star" [class.checked]="star"></span>
+              <span class="up" [class.checked]="star && star === rating.value">& Up</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>

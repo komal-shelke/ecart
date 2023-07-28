@@ -1,0 +1,29 @@
+<header class="head">
+  <div class="navbar fixed-top bg-primary shadow">
+    <div class="container-fluid">
+      <div class="nav-name">
+        <div><i class="fas fa-shipping-fast logo-icon">&nbsp;
+          </i>
+          <strong class="appname" routerLink="product">ShopApp</strong>
+        </div>
+
+      </div>
+      <div class="user">
+        <div class="user-icon">
+          <i routerLink="user" class="fas fa-user-circle" style="font-size: 36px"></i>
+
+        </div>
+        <div class="cart">
+
+          <i routerLink="cart" class="bi bi-cart2 cart-icon"></i>
+          <div class="badge bg-danger" *ngIf="cartItem >= 1">
+            {{ cartItem }}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+<router-outlet></router-outlet>

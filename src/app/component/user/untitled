@@ -1,0 +1,98 @@
+// import { Component } from '@angular/core';
+// import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+// @Component({
+//   selector: 'app-user',
+//   templateUrl: './user.component.html',
+//   styleUrls: ['./user.component.scss'],
+// })
+// export class UserComponent {
+//   public getProductDetails: any = [];
+//   public stars = [1, 2, 3, 4, 5];
+//   public isEdit: boolean;
+//   public loginForm: any;
+
+//   ngOnInit() {
+//     this.productDetails();
+//   }
+
+//   public addProduct: boolean = false;
+//   public onClick(item?: any, value?: boolean): void {
+//     this.addProduct = !this.addProduct;
+//     this.isEdit = value;
+//     if (this.addProduct) {
+//       this.createForm();
+//     }
+
+//     if (this.isEdit) {
+//       this.loginForm.patchValue(item);
+//     }
+//   }
+
+//   public updateitem(loginForm) {
+//     this.updateitem = loginForm.item;
+//     localStorage.setItem('products', JSON.stringify(this.getProductDetails));
+//     this.onClick();
+//   }
+
+//   public onClose() {
+//     this.addProduct = !this.addProduct;
+//   }
+
+//   public submit() {
+//     const item = this.loginForm.value;
+
+//     if (this.getProductDetails.length > 0) {
+//       const index = this.getProductDetails.findIndex(
+//         (productId: any) => productId.id === item.id
+//       );
+
+//       if (index == -1) {
+//         this.addItem(item);
+//       } else {
+//         this.getProductDetails[index] = item;
+//       }
+//     } else {
+//       this.addItem(item);
+//       // item.id = this.getProductDetails.lenth + 1;
+//       // this.getProductDetails.push(item);
+//     }
+
+//     localStorage.setItem('products', JSON.stringify(this.getProductDetails));
+//     this.onClose();
+//   }
+
+//   public addItem(item1) {
+//     // const item = this.loginForm.value;
+//     item1.id = this.getProductDetails.length + 1;
+//     item1.imgurl = item1.category;
+//     this.getProductDetails.unshift(item1);
+//   }
+
+//   public productDetails() {
+//     if (localStorage.getItem('products')) {
+//       this.getProductDetails = JSON.parse(localStorage.getItem('products')!);
+//     }
+//   }
+
+//   public createForm() {
+//     this.loginForm = new FormGroup({
+//       id: new FormControl(''),
+//       name: new FormControl('', [
+//         Validators.required,
+//         Validators.minLength(4),
+//         Validators.maxLength(14),
+//       ]),
+//       price: new FormControl(null, [Validators.required]),
+//       category: new FormControl(null, [Validators.required]),
+//       qty: new FormControl(null, [Validators.required]),
+//       description: new FormControl(null, [
+//         Validators.required,
+//         Validators.minLength(4),
+//         Validators.maxLength(44),
+//       ]),
+//       // imgurl: new FormControl(null, [Validators.required]),
+//       rating: new FormControl(null, [Validators.required]),
+//     });
+//   }
+// }
